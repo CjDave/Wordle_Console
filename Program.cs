@@ -29,7 +29,7 @@ namespace testYou
 
             while (!correct && currentTry < tries)
             {
-                printMessage("Enter A Five Letter Word \t Current try is: " + currentTry.ToString()+" ", MessageType.info);
+                printMessage("Enter A Five Letter Word \t Current try is: " + currentTry.ToString() + " ", MessageType.info);
                 string input = Console.ReadLine().ToLower();
                 if (input.Length != 5)
                 {
@@ -68,6 +68,7 @@ namespace testYou
             if (input == a)//If guess is right
             {
                 printMessage(input, MessageType.success);
+                printMessage("Congratulations You Won", MessageType.success);
                 return true;
             }
             char[] answer = a.ToCharArray();
@@ -77,17 +78,16 @@ namespace testYou
             {
                 color = Color.gray;
                 //If letter is in word
-                if (answer.Contains(inputArray[i]))
+                for (int d = 0; d < answer.Length; d++)
                 {
-                    for (int d = 0; d < answer.Length; d++)
+                    if (inputArray[i] == answer[d])
                     {
-                        if (inputArray[i] == answer[d])
+                        
+                        color = d == i ? Color.green : Color.yellow;
+                        if (color == Color.green)
                         {
-                            color = d == i ? Color.green : Color.yellow;
-                            if (color == Color.green)
-                            {
-                                answer[d] = ' ';
-                            }
+                            answer[d] = ' ';
+                            break;
                         }
                     }
                 }
