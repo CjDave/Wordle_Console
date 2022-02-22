@@ -1,2 +1,2 @@
-# Wordle_C-
+# Wordle_Console
 C# Console Version Of  The game "Wordle"
